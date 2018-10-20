@@ -1,0 +1,14 @@
+h1 Catégories d'ingrédients
+table
+  thead
+    tr
+      th Nom
+      th Nombre d'ingrédients
+  tbody
+    - @categories.each do |category|
+      tr
+        td
+          = category[:name]
+        td
+          = category[:ingredients_count]
+a href=new_ingredient_category_path Ajouter une catégorie
