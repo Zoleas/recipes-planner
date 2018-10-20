@@ -1,7 +1,7 @@
 class IngredientCategoriesController < ApplicationController
   def index
     @categories = IngredientCategory.includes(:ingredients).map do |category|
-      { name: category.name, ingredients_count: category.ingredients.count }
+      { id: category.id, name: category.name, ingredients_count: category.ingredients.count }
     end
   end
 
@@ -17,6 +17,11 @@ class IngredientCategoriesController < ApplicationController
       # flash[:error] = category.errors.full_messages.to_sentence
       redirect_to new_ingredient_category_path, flash: { error: category.errors.full_messages.to_sentence }
     end
+  end
+
+  def destroy
+    IngredientCategory.find(params[:id]).destroy
+    redirect_to ingredient_categories_path
   end
 
   private
