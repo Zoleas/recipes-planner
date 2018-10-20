@@ -18,3 +18,14 @@ Month.create name: 'Septembre', number: 9, season: Month::Season::SUMMER
 Month.create name: 'Octobre', number: 10, season: Month::Season::AUTUMN
 Month.create name: 'Novembre', number: 11, season: Month::Season::AUTUMN
 Month.create name: 'Décembre', number: 12, season: Month::Season::AUTUMN
+
+IngredientCategory.create name: 'Légume'
+IngredientCategory.create name: 'Fruit'
+IngredientCategory.create name: 'Légumineuse'
+IngredientCategory.create name: 'Céréale'
+IngredientCategory.create name: 'Féculent'
+IngredientCategory.create name: 'Graine'
+IngredientCategory.create name: 'Fruit sec'
+IngredientCategory.create name: 'Base'
+IngredientCategory.create name: 'Frais'
+IngredientCategory.create name: 'Transformé'
