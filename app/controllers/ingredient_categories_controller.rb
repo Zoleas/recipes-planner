@@ -7,6 +7,7 @@ class IngredientCategoriesController < ApplicationController
 
   def show
     @category = IngredientCategory.includes(:ingredients).find(params[:id])
+    @other_ingredients = Ingredient.where.not(id: @category.ingredients.map(&:id))
   end
 
   def new
@@ -14,7 +15,7 @@ class IngredientCategoriesController < ApplicationController
   end
 
   def edit
-    @category = IngredientCategory.find(params[:id])
+    @category = IngredientCategory.includes(:ingredients).find(params[:id])
   end
 
   def create
@@ -39,6 +40,20 @@ class IngredientCategoriesController < ApplicationController
   def destroy
     IngredientCategory.find(params[:id]).destroy
     redirect_to ingredient_categories_path
+  end
+
+  def add_ingredient
+    category = IngredientCategory.find(params[:id])
+    category.ingredients << Ingredient.find(params[:ingredient_id])
+    category.save
+    redirect_to ingredient_category_path(category), flash: { success: 'Ingrédient ajouté' }
+  end
+
+  def remove_ingredient
+    category = IngredientCategory.find(params[:id])
+    category.ingredients.delete(params[:ingredient_id])
+    category.save
+    redirect_to ingredient_category_path(category), flash: { success: 'Ingrédient retiré' }
   end
 
   private

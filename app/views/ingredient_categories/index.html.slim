@@ -4,13 +4,11 @@ table
     tr
       th Nom
       th Nombre d'ingrédients
-      th colspan=3
+      th
   tbody
     - @categories.each do |category|
       tr
-        td= category[:name]
-        td= category[:ingredients_count]
-        td= link_to 'Voir', ingredient_category_path(id: category[:id])
-        td= link_to 'Modifier', edit_ingredient_category_path(id: category[:id])
+        td= link_to category[:name], edit_ingredient_category_path(id: category[:id])
+        td= link_to category[:ingredients_count], ingredient_category_path(id: category[:id])
         td= link_to 'Supprimer', ingredient_category_path(id: category[:id]), method: :delete, data: { confirm: 'Are you sure?' }
 a href=new_ingredient_category_path Ajouter une catégorie
