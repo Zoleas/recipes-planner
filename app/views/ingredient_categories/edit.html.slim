@@ -1,0 +1,7 @@
+h1 Modifier la catégorie
+= form_for @category do |f|
+  = f.label 'Nom de la catégorie'
+  = f.text_field :name, placeholder: 'Nom', required: true
+  = f.submit 'Modifier'
+
+a href=ingredient_categories_path Revenir à la liste

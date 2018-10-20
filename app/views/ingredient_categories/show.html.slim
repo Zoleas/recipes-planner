@@ -1,0 +1,14 @@
+h1 = "Catégorie #{@category.name}"
+- if @category.ingredients.any?
+  p Ingrédients
+  table
+    tbody
+      - @category.ingredients.each do |ingredient|
+        tr
+          td= ingredient.name
+          td= category[:ingredients_count]
+          / td= link_to 'Supprimer de la liste', ingredient_category_path(id: category[:id]), method: :delete, data: {confirm: 'Are you sure?'}
+- else
+  p Cette catégorie n'a aucun ingrédient
+
+a href=ingredient_categories_path Revenir à la liste
