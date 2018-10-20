@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Month.create name: 'Janvier', number: 1, season: Month::Season::WINTER
+Month.create name: 'Février', number: 2, season: Month::Season::WINTER
+Month.create name: 'Mars', number: 3, season: Month::Season::WINTER
+Month.create name: 'Avril', number: 4, season: Month::Season::SPRING
+Month.create name: 'Mais', number: 5, season: Month::Season::SPRING
+Month.create name: 'Juin', number: 6, season: Month::Season::SPRING
+Month.create name: 'Juillet', number: 7, season: Month::Season::SUMMER
+Month.create name: 'Août', number: 8, season: Month::Season::SUMMER
+Month.create name: 'Septembre', number: 9, season: Month::Season::SUMMER
+Month.create name: 'Octobre', number: 10, season: Month::Season::AUTUMN
+Month.create name: 'Novembre', number: 11, season: Month::Season::AUTUMN
+Month.create name: 'Décembre', number: 12, season: Month::Season::AUTUMN
